@@ -43,5 +43,11 @@ git commit -m "updated theme"
 
 git push -u origin master
 
+to get the latest changes use:
+
+navigate to your project folder 
+
+git pull
+
 
 
