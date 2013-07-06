@@ -10,6 +10,7 @@ func init(){
     r.HandleFunc("/about", aboutHandler)
     r.HandleFunc("/games", gamesHandler)
     r.HandleFunc("/pixelart",pixelartHandler)
+    r.HandleFunc("/test",testHandler)
     r.PathPrefix("/static/").Handler(http.FileServer(http.Dir(".")))
     http.Handle("/",r)
 }

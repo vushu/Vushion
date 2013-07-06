@@ -4,6 +4,8 @@ import(
     "net/http"
     "html/template"
     "bytes"
+    //"io"
+    //"io/ioutil"
 )
 var HTML_DIR = "tmpl/"
 type content struct {
@@ -45,10 +47,13 @@ func pixelartHandler(w http.ResponseWriter, r *http.Request){
     w.Write(makeBase(a))
 }
 
-
-
+func testHandler(w http.ResponseWriter, r *http.Request){
+    a, _ := parseTemplate(HTML_DIR+"submittest.html",nil)
+    w.Write(makeBase(a))
+}
 func makeBase(cont []byte) (out []byte){
     menu, _ := parseTemplate(HTML_DIR+"menu.html",nil)
     base, _ := parseTemplate(HTML_DIR+"base.html",content {MenuHTML: template.HTML(menu), ContentHTML: template.HTML(cont)})
     return base;
 }
+
